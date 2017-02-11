@@ -21,6 +21,11 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+- (instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE; 
+
+//set image from net
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
 
 
