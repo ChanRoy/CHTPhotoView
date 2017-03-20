@@ -8,17 +8,27 @@
 
 #import "CHTPhotoView.h"
 #import "UIImageView+WebCache.h"
+#import "CHTRingLoadingView.h"
 
 @interface CHTPhotoView ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) CHTRingLoadingView *loadingView;
 
 @end
 
 @implementation CHTPhotoView{
     
     BOOL _isDoubleTaping;
+}
+
+- (void)dealloc{
+    
+    if (!_image) {
+        
+        [_imageView sd_cancelCurrentImageLoad];
+    }
 }
 
 - (instancetype)init
@@ -40,6 +50,7 @@
 - (void)initialize{
     
     self.clipsToBounds = YES;
+    _isShowLoadingView = YES;
     
     _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -63,6 +74,14 @@
     _doubleTap.numberOfTapsRequired = 2;
     [self addGestureRecognizer:_doubleTap];
     
+}
+
+- (void)setupLoadingView{
+    
+    _loadingView = [[CHTRingLoadingView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    _loadingView.center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2);
+    [self addSubview:_loadingView];
+    [self bringSubviewToFront:_loadingView];
 }
 
 - (void)adjustFrame{
@@ -109,13 +128,28 @@
     
     _doubleTap.enabled = NO;
     
+    if (!_loadingView && _isShowLoadingView) {
+        
+        [self setupLoadingView];
+    }else{
+        
+        [self bringSubviewToFront:_loadingView];
+    }
+    
     __weak typeof(self) weakSelf = self;
     
     [_imageView sd_setImageWithURL:url placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        weakSelf.imageView.image = image;
-        _image = image;
-        [weakSelf adjustFrame];
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        if (error) {
+            
+            NSLog(@"****%@",error.description);
+            strongSelf.image = placeholderImage;
+            return;
+        }
+        strongSelf.image = image;
+        
     }];
 }
 
@@ -124,6 +158,7 @@
     
     _image = image;
     _imageView.image = image;
+    _loadingView.hidden = YES;
     [self adjustFrame];
 }
 

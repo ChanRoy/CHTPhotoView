@@ -11,6 +11,7 @@
 
 @protocol CHTPhotoViewDelegate <NSObject>
 
+@optional
 - (void)photoViewDidOnceTap:(CHTPhotoView *)photoView;
 
 @end
@@ -20,6 +21,8 @@
 @property (nonatomic, weak) id<CHTPhotoViewDelegate> photoViewDelegate;
 
 @property (nonatomic, strong) UIImage *image;
+
+@property (nonatomic, assign) BOOL isShowLoadingView;
 
 - (instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 

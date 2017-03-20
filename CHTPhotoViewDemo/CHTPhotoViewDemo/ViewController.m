@@ -24,9 +24,9 @@
     CHTPhotoView *photoView = [[CHTPhotoView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
     photoView.photoViewDelegate = self;
 
-#if 0
+#if 1
     //image from net
-    [photoView setImageWithURL:[NSURL URLWithString:@"https://pic1.zhimg.com/v2-183430a5f24967b5089d46109e028c54_r.jpg"] placeholderImage:nil];
+    [photoView setImageWithURL:[NSURL URLWithString:@"http://image.xinmin.cn/xmwb/2015/12/NEM1_20151225_C032136180_A39131.jpg"] placeholderImage:[UIImage imageNamed:@"pd.jpg"]];
 #else
     //image from local
     photoView.image = [UIImage imageNamed:@"dahuaxiyou.jpg"];
