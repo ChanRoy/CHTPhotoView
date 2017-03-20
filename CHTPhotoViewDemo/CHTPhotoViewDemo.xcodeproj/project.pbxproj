@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		512BEF22F59903387E9A7EB8 /* libPods-CHTPhotoViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F784E20D0DB41926330DF3 /* libPods-CHTPhotoViewDemo.a */; };
 		AE6D84A71E4F2FC00022A705 /* CHTPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6D84A61E4F2FC00022A705 /* CHTPhotoView.m */; };
+		AE99E2331E7F72F700EF038C /* CHTRingLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE99E2321E7F72F700EF038C /* CHTRingLoadingView.m */; };
+		AE99E2351E7FADE900EF038C /* pd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE99E2341E7FADE900EF038C /* pd.jpg */; };
 		AEC52D671E4EFE8F003F7BDE /* dahuaxiyou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEC52D661E4EFE8F003F7BDE /* dahuaxiyou.jpg */; };
 		AEF2D7691E4A034D00373368 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF2D7681E4A034D00373368 /* main.m */; };
 		AEF2D76C1E4A034D00373368 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF2D76B1E4A034D00373368 /* AppDelegate.m */; };
@@ -22,6 +24,9 @@
 		08F784E20D0DB41926330DF3 /* libPods-CHTPhotoViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CHTPhotoViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE6D84A51E4F2FC00022A705 /* CHTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTPhotoView.h; sourceTree = "<group>"; };
 		AE6D84A61E4F2FC00022A705 /* CHTPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTPhotoView.m; sourceTree = "<group>"; };
+		AE99E2311E7F72F700EF038C /* CHTRingLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTRingLoadingView.h; sourceTree = "<group>"; };
+		AE99E2321E7F72F700EF038C /* CHTRingLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTRingLoadingView.m; sourceTree = "<group>"; };
+		AE99E2341E7FADE900EF038C /* pd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pd.jpg; sourceTree = "<group>"; };
 		AEC52D661E4EFE8F003F7BDE /* dahuaxiyou.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dahuaxiyou.jpg; sourceTree = "<group>"; };
 		AEF2D7641E4A034D00373368 /* CHTPhotoViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHTPhotoViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2D7681E4A034D00373368 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +68,8 @@
 			children = (
 				AE6D84A51E4F2FC00022A705 /* CHTPhotoView.h */,
 				AE6D84A61E4F2FC00022A705 /* CHTPhotoView.m */,
+				AE99E2311E7F72F700EF038C /* CHTRingLoadingView.h */,
+				AE99E2321E7F72F700EF038C /* CHTRingLoadingView.m */,
 			);
 			name = CHTPhotoView;
 			path = ../../CHTPhotoView;
@@ -71,6 +78,7 @@
 		AEC52D681E4EFE95003F7BDE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AE99E2341E7FADE900EF038C /* pd.jpg */,
 				AEC52D661E4EFE8F003F7BDE /* dahuaxiyou.jpg */,
 			);
 			name = Resource;
@@ -189,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE99E2351E7FADE900EF038C /* pd.jpg in Resources */,
 				AEF2D7771E4A034E00373368 /* LaunchScreen.storyboard in Resources */,
 				AEF2D7741E4A034E00373368 /* Assets.xcassets in Resources */,
 				AEC52D671E4EFE8F003F7BDE /* dahuaxiyou.jpg in Resources */,
@@ -253,6 +262,7 @@
 			files = (
 				AEF2D76F1E4A034D00373368 /* ViewController.m in Sources */,
 				AE6D84A71E4F2FC00022A705 /* CHTPhotoView.m in Sources */,
+				AE99E2331E7F72F700EF038C /* CHTRingLoadingView.m in Sources */,
 				AEF2D76C1E4A034D00373368 /* AppDelegate.m in Sources */,
 				AEF2D7691E4A034D00373368 /* main.m in Sources */,
 			);
@@ -380,6 +390,7 @@
 					"\"$(SRCROOT)/..\"",
 				);
 				INFOPLIST_FILE = CHTPhotoViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cht.CHTPhotoViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -398,6 +409,7 @@
 					"\"$(SRCROOT)/..\"",
 				);
 				INFOPLIST_FILE = CHTPhotoViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cht.CHTPhotoViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

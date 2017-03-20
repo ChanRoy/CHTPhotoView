@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, assign) BOOL isShowLoadingView;
+
 - (instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE; 
