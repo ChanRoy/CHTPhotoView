@@ -8,6 +8,8 @@
 
 *用于展示照片的View，支持双击放大缩小，双指缩放*
 
+*展示网络图片时依赖SDWebImage，加载过程中有加载动画提示*
+
 *具体效果如上图*
 
 ## 使用
@@ -23,6 +25,9 @@
 ```
 //展示的图片
 @property (nonatomic, strong) UIImage *image;
+
+//是否展示加载动画
+@property (nonatomic, assign) BOOL isShowLoadingView;
 ```
 ### 接口
 依赖于第三方库SDWebImage，使用时需要引入SDWebImage。
@@ -47,7 +52,7 @@ photoViewDelegate 遵循以下协议,单击photoView会触发以下协议方法�
 
 @end
 ```
-### 使用Demo
+## 使用Demo
 
 ```
 - (void)viewDidLoad {
@@ -58,7 +63,7 @@ photoViewDelegate 遵循以下协议,单击photoView会触发以下协议方法�
 
 #if 0
     //image from net
-    [photoView setImageWithURL:[NSURL URLWithString:@"https://pic1.zhimg.com/v2-183430a5f24967b5089d46109e028c54_r.jpg"] placeholderImage:nil];
+    [photoView setImageWithURL:[NSURL URLWithString:@"http://image.xinmin.cn/xmwb/2015/12/NEM1_20151225_C032136180_A39131.jpg"] placeholderImage:[UIImage imageNamed:@"pd.jpg"]];
 #else
     //image from local
     photoView.image = [UIImage imageNamed:@"dahuaxiyou.jpg"];
@@ -77,3 +82,6 @@ photoViewDelegate 遵循以下协议,单击photoView会触发以下协议方法�
 ```
 
 具体可参考仓库中的Demo。
+
+## LICENSE
+MIT
